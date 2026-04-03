@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import {
   Chrome,
   Copy,
+  ExternalLink,
   Info,
   MapPin,
   MapPinOff,
@@ -73,6 +74,14 @@ export default function LocationRequiredPage({
       .catch(() => {
         toast.error("Could not copy to clipboard. Please copy manually.");
       });
+  };
+
+  const handleGoogleLocationSettings = () => {
+    window.open(
+      "https://myaccount.google.com/data-and-privacy/location-history",
+      "_blank",
+      "noopener,noreferrer",
+    );
   };
 
   return (
@@ -189,6 +198,15 @@ export default function LocationRequiredPage({
           >
             <Copy className="w-4 h-4 mr-2" />
             Copy Location Settings Link
+          </Button>
+          <Button
+            variant="outline"
+            onClick={handleGoogleLocationSettings}
+            className="w-full h-12 text-base font-semibold border-blue-200 text-blue-700 hover:bg-blue-50 hover:text-blue-800"
+            data-ocid="location_required.google.button"
+          >
+            <ExternalLink className="w-4 h-4 mr-2" />
+            Open Google Location Settings
           </Button>
           <button
             type="button"
