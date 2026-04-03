@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.625rem;
+    /* Background: #F4F6F8 -> oklch(0.956 0.007 247) */
+    --background: 0.956 0.007 247;
+    /* Foreground: #1F2328 -> oklch(0.22 0.008 255) */
+    --foreground: 0.22 0.008 255;
+    /* Card: white */
+    --card: 1 0 0;
+    --card-foreground: 0.22 0.008 255;
+    --popover: 1 0 0;
+    --popover-foreground: 0.22 0.008 255;
+    /* Primary orange: #F57C1F -> oklch(0.68 0.175 51) */
+    --primary: 0.68 0.175 51;
+    --primary-foreground: 1 0 0;
+    /* Secondary: light gray */
+    --secondary: 0.94 0.005 247;
+    --secondary-foreground: 0.22 0.008 255;
+    --muted: 0.94 0.005 247;
+    /* Muted foreground: #6B7280 -> oklch(0.556 0.012 264) */
+    --muted-foreground: 0.556 0.012 264;
+    --accent: 0.94 0.005 247;
+    --accent-foreground: 0.22 0.008 255;
+    /* Destructive */
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 1 0 0;
+    /* Border: #E5E7EB -> oklch(0.922 0.006 264) */
+    --border: 0.922 0.006 264;
+    --input: 0.922 0.006 264;
+    --ring: 0.68 0.175 51;
+    /* Hero dark blue: #24384A -> oklch(0.30 0.057 231) */
+    --hero: 0.3 0.057 231;
+    /* Verified blue: #2563EB -> oklch(0.546 0.214 254) */
+    --verified: 0.546 0.214 254;
+    /* Stars: #F5C542 -> oklch(0.82 0.165 84) */
+    --star: 0.82 0.165 84;
+    --chart-1: 0.68 0.175 51;
+    --chart-2: 0.546 0.214 254;
+    --chart-3: 0.3 0.057 231;
+    --chart-4: 0.82 0.165 84;
+    --chart-5: 0.556 0.012 264;
+    --sidebar: 1 0 0;
+    --sidebar-foreground: 0.22 0.008 255;
+    --sidebar-primary: 0.68 0.175 51;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.94 0.005 247;
+    --sidebar-accent-foreground: 0.22 0.008 255;
+    --sidebar-border: 0.922 0.006 264;
+    --sidebar-ring: 0.68 0.175 51;
+  }
+
+  * {
+    @apply border-border;
+    -webkit-tap-highlight-color: transparent;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: "Bricolage Grotesque", "Plus Jakarta Sans", system-ui,
+      sans-serif;
+  }
+
+  /* Mobile inputs should be at least 16px to prevent iOS zoom */
+  input,
+  select,
+  textarea {
+    font-size: max(16px, 1em);
+  }
+}
+
+/* Safe area padding for iPhone notch / home indicator */
+.pb-safe {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+.pt-safe {
+  padding-top: max(0px, env(safe-area-inset-top));
+}
